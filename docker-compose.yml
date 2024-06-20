@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  postgres:
+    container_name: react-nestjs-postgres
+    image: postgres:latest
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./db/pgData:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    networks:
+      - default_network
+networks:
+  default_network:
